@@ -3,6 +3,8 @@
 	"displayName": "SourcePawn Linter",
 	"description": "",
 	"version": "1.0.0",
+	"icon": "pawn.png",
+	"license": "GPLv3",
 	"engines": {
 		"vscode": "^1.50.0"
 	},
@@ -17,9 +19,22 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"configuration":{
+			"title": "SourcePawn Linter",
+			"properties": {
+				"sourcePawnLinter.includeDir": {
+					"type": "string",
+					"description": "Location of required includes to compile"
+				}
+			}
+		},
 		"languages": [
 			{
 				"id": "sourcepawn",
+				"aliases": [
+					"SourcePawn",
+					"sourcepawn"
+				],
 				"extensions": [
 					".sp",
 					".inc"
