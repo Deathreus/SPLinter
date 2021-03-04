@@ -1,6 +1,7 @@
 # SP Linter
 
 A simple linter for SourcePawn script files
+
 ![img](/images/linter.gif)
 
 ## Features
