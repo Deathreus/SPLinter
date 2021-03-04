@@ -3,7 +3,7 @@
 	"displayName": "SourcePawn Linter",
 	"description": "",
 	"version": "1.0.0",
-	"icon": "pawn.png",
+	"icon": "images/pawn.png",
 	"license": "GPLv3",
 	"engines": {
 		"vscode": "^1.50.0"
