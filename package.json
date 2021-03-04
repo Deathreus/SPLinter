@@ -1,0 +1,57 @@
+{
+	"name": "sp-linter",
+	"displayName": "SourcePawn Linter",
+	"description": "",
+	"version": "1.0.0",
+	"engines": {
+		"vscode": "^1.50.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"activationEvents": [
+		"onLanguage:sourcepawn"
+	],
+	"keywords": [
+		"SourcePawn"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "sourcepawn",
+				"extensions": [
+					".sp",
+					".inc"
+				]
+			}
+		]
+	},
+	"repository": {
+        "type": "git",
+        "url": "https://github.com/Deathreus/SPLinter"
+    },
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js",
+		"deploy": "vsce public --yarn"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.50.0",
+		"@typescript-eslint/eslint-plugin": "^4.14.1",
+		"@typescript-eslint/parser": "^4.14.1",
+		"eslint": "^7.19.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.2.1",
+		"typescript": "^4.1.3",
+		"vsce": "^1.85.1",
+		"vscode-test": "^1.5.0"
+	}
+}
