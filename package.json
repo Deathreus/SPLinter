@@ -5,6 +5,7 @@
 	"version": "1.0.0",
 	"icon": "images/pawn.png",
 	"license": "GPLv3",
+	"publisher": "deathreus",
 	"engines": {
 		"vscode": "^1.50.0"
 	},
@@ -19,6 +20,17 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"languages": [
+			{
+				"id": "sourcepawn",
+				"aliases": [
+					"SourcePawn"
+				],
+				"extensions": [
+					".sp"
+				]
+			}
+		],
 		"configuration":{
 			"title": "SourcePawn Linter",
 			"properties": {
@@ -27,24 +39,11 @@
 					"description": "Location of required includes to compile"
 				}
 			}
-		},
-		"languages": [
-			{
-				"id": "sourcepawn",
-				"aliases": [
-					"SourcePawn",
-					"sourcepawn"
-				],
-				"extensions": [
-					".sp",
-					".inc"
-				]
-			}
-		]
+		}
 	},
 	"repository": {
         "type": "git",
-        "url": "https://github.com/Deathreus/SPLinter"
+        "url": "https://github.com/Deathreus/SPLinter.git"
     },
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
