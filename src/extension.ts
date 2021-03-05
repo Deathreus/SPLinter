@@ -8,15 +8,15 @@ import { execSync } from 'child_process';
 
 let timeout: NodeJS.Timeout | undefined = undefined;
 
-function refreshDiagnostics(document: vscode.TextDocument | undefined, context: vscode.DiagnosticCollection) {
+function refreshDiagnostics(document: vscode.TextDocument, context: vscode.DiagnosticCollection) {
 	if(timeout)
 	{
 		clearTimeout(timeout);
 		timeout = undefined;
 	}
 
-	timeout = setTimeout(() => {
-		if(path.extname(document?.fileName ?? ".") === '.sp') {
+	timeout = setTimeout(function() {
+		if(path.extname(document.fileName) === '.sp') {
 			let diagnostics: vscode.Diagnostic[] = [];
 			try {
 				execSync(__dirname + "/../spcomp.exe -i" + workspace.getConfiguration("sourcePawnLinter").get("includeDir") + " --dry-run " + document.uri.fsPath);
@@ -46,7 +46,9 @@ export function activate(context: vscode.ExtensionContext) {
 	}
 
 	let activeTextEditorChanged = window.onDidChangeActiveTextEditor(editor => { 
-			refreshDiagnostics(editor?.document, compilerDiagnostics); 
+		if(editor) {
+			refreshDiagnostics(editor.document, compilerDiagnostics); 
+		}
 	});
 	context.subscriptions.push(activeTextEditorChanged);
 
