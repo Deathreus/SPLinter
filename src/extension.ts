@@ -50,7 +50,7 @@ export function activate(context: vscode.ExtensionContext) {
 			if(path.extname(document.fileName) === '.sp') {
 				let diagnostics: vscode.Diagnostic[] = [];
 				try {
-					let file = fs.openSync(tempFile, "w");
+					let file = fs.openSync(tempFile, "w", 0o765);
 					fs.writeSync(file, document.getText());
 					fs.closeSync(file);
 
@@ -108,7 +108,7 @@ export function activate(context: vscode.ExtensionContext) {
         }
     });
 
-	fs.chownSync(spcomp, 0o777, 0o777);
+	fs.chmodSync(spcomp, 0o775);
 	vscode.workspace.textDocuments.forEach(document => { refreshDiagnostics(document, compilerDiagnostics); });
 }
 
