@@ -1,8 +1,8 @@
 {
 	"name": "sp-linter",
 	"displayName": "SourcePawn Linter",
-	"description": "",
-	"version": "1.0.0",
+	"description": "A simple linter",
+	"version": "0.0.1",
 	"icon": "images/pawn.png",
 	"license": "GPLv3",
 	"publisher": "deathreus",
@@ -15,7 +15,7 @@
 	"activationEvents": [
 		"onLanguage:sourcepawn"
 	],
-	"main": "./out/extension.js",
+	"main": "./extension",
 	"contributes": {
 		"configuration":{
 			"title": "SourcePawn Linter",
