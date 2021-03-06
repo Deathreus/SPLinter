@@ -14,7 +14,7 @@ File an issue report if you encounter one!
 
 ## Release Notes
 
-### 1.0.0
+### 0.0.1
 
 Initial release
 
