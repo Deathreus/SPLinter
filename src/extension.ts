@@ -50,17 +50,16 @@ export function activate(context: vscode.ExtensionContext) {
 			if(path.extname(document.fileName) === '.sp') {
 				let diagnostics: vscode.Diagnostic[] = [];
 				try {
-					
 					let file = fs.openSync(tempFile, "w");
 					fs.writeSync(file, document.getText());
 					fs.closeSync(file);
 
-					execFileSync(spcomp, [ "-i" + vscode.workspace.getConfiguration("sourcePawnLinter").get("includeDir") ,"--dry-run", tempFile ]);
+					execFileSync(spcomp, [ "-i" + vscode.workspace.getConfiguration("sourcePawnLinter").get("includeDir") || "include", "--dry-run", tempFile ]);
 				} catch (error) {
 					let regex = /\((\d+)+\) : ((error|fatal error|warning).+)/gm;
 					let matches: RegExpExecArray | null;
 					while(matches = regex.exec(error.stderr?.toString() || "")) {
-						const range = new vscode.Range(new vscode.Position(Number(matches[1]) - 1, 0), new vscode.Position(Number(matches[1]) - 1, Infinity));
+						const range = new vscode.Range(new vscode.Position(Number(matches[1]) - 1, 0), new vscode.Position(Number(matches[1]) - 1, 256));
 						const severity = matches[3] === 'warning' ? vscode.DiagnosticSeverity.Warning : vscode.DiagnosticSeverity.Error;
 						diagnostics.push(new vscode.Diagnostic(range, matches[2], severity));
 					}
@@ -95,7 +94,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	glob(path.join(vscode.workspace.workspaceFolders?.[0].uri.path || "", "**/include/sourcemod.inc"), (err, files) => {
         if (files.length === 0) {
-            if (!vscode.workspace.getConfiguration("sourcePawnLinter").get("includeDir")) {
+            if (!vscode.workspace.getConfiguration("sourcePawnLinter").has("includeDir")) {
                 vscode.window.showWarningMessage("SourceMod API not found in the project. You may need to set SourceMod Home for autocompletion to work", "Open Settings").then((choice) => {
                     if (choice === 'Open Settings') {
                         vscode.commands.executeCommand("workbench.action.openWorkspaceSettings");
@@ -103,7 +102,7 @@ export function activate(context: vscode.ExtensionContext) {
                 });
             }
         } else {
-            if (!vscode.workspace.getConfiguration("sourcepawnLinter").get("includeDir")) {
+            if (!vscode.workspace.getConfiguration("sourcepawnLinter").has("includeDir")) {
                 vscode.workspace.getConfiguration("sourcepawnLinter").update("includeDir", path.dirname(files[0]));
             }
         }
