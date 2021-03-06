@@ -1,3 +1,6 @@
+[![CI](https://github.com/Deathreus/SPLinter/actions/workflows/main.yml/badge.svg)](https://github.com/Deathreus/SPLinter/actions/workflows/main.yml)
+[![Release](https://github.com/Deathreus/SPLinter/actions/workflows/main.yml/badge.svg?event=release)](https://github.com/Deathreus/SPLinter/actions/workflows/main.yml)
+
 # SP Linter
 
 A simple linter for SourcePawn script files
