@@ -23,6 +23,10 @@
 				"sourcePawnLinter.includeDir": {
 					"type": "string",
 					"description": "Location of required includes to compile"
+				},
+				"sourcePawnLinter.pathToSpcomp": {
+					"type": "string",
+					"description": "Location of the SourcePawn compiler"
 				}
 			}
 		}
