@@ -13,7 +13,7 @@ Real time error reporting that will help in creating/editing scripts.
 
 ## Known Issues
 
-###File an issue report if you encounter one!
+### File an issue report if you encounter one!
 
 Doesn't activate when installed, only in development environment
 
