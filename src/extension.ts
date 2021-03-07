@@ -78,7 +78,6 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 		}, 300);
 	}
-	vscode.window.showInformationMessage("Starting SP Linter");
 
 	let compilerDiagnostics = vscode.languages.createDiagnosticCollection("compiler");
 	context.subscriptions.push(compilerDiagnostics);
