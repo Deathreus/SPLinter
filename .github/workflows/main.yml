@@ -2,10 +2,9 @@ name: CI
 
 on:
   push:
-  pull_request:
   workflow_dispatch:
   release:
-    types: [ created, published ]
+    types: [ created ]
 
 jobs:
   build:
