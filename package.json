@@ -2,7 +2,7 @@
 	"name": "sp-linter",
 	"displayName": "SourcePawn Linter",
 	"description": "A simple linter",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"icon": "images/pawn.png",
 	"license": "GPLv3",
 	"publisher": "deathreus",
