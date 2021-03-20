@@ -1,5 +1,6 @@
 [![CI](https://github.com/Deathreus/SPLinter/actions/workflows/main.yml/badge.svg)](https://github.com/Deathreus/SPLinter/actions/workflows/main.yml)
-[![Release](https://github.com/Deathreus/SPLinter/actions/workflows/main.yml/badge.svg?event=release)](https://github.com/Deathreus/SPLinter/actions/workflows/main.yml)
+[![Version](https://vsmarketplacebadge.apphb.com/version/deathreus.sp-linter.svg)](https://marketplace.visualstudio.com/items?itemName=deathreus.sp-linter)
+[![Installs](https://vsmarketplacebadge.apphb.com/installs/deathreus.sp-linter.svg)](https://marketplace.visualstudio.com/items?itemName=deathreus.sp-linter)
 
 # SP Linter
 
